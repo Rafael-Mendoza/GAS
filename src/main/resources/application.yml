@@ -1,0 +1,60 @@
+security:
+  basic:
+     enabled: false
+endpoints:
+  trace:
+    sensitive: false
+logging:
+  level:
+    org.springframework.security: DEBUG
+server:
+    port: 8080
+
+#################################################################################
+
+facebook:
+  client:
+    clientId: 158404034815689
+    clientSecret: d859ce7216148044598f093a4f2d49d5
+    accessTokenUri: https://graph.facebook.com/oauth/access_token
+    userAuthorizationUri: https://www.facebook.com/dialog/oauth
+    tokenName: oauth_token
+    authenticationScheme: query
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://graph.facebook.com/me
+    
+github:
+  client:
+    clientId: 88aae960a2cd53406ba5
+    clientSecret: 402359df0fe51af394498e2f99733e5bc135b8a0
+    accessTokenUri: https://github.com/login/oauth/access_token
+    userAuthorizationUri: https://github.com/login/oauth/authorize
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://api.github.com/user
+    
+google:
+    client:
+      clientId: 793433222720-ltta3if9qscdcbdcq0ae68eh3b13gfd0.apps.googleusercontent.com
+      clientSecret: -kaIZ2E_-ntOqd32uL5Z1Gk-
+      accessTokenUri: https://www.googleapis.com/oauth2/v4/token
+      userAuthorizationUri: https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&prompt=consent
+      clientAuthenticationScheme: form
+      tokenName: oauth_token
+      authenticationScheme: query
+      scope: https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/drive https://mail.google.com/ https://www.googleapis.com/auth/plus.me
+#        - openid
+#        - email
+#        - profile
+    resource:
+      userInfoUri: https://www.googleapis.com/oauth2/v3/userinfo
+    
+
+
+#  oauth2:
+#    client:
+#      client-id: acme
+#      client-secret: acmesecret
+#      scope: read,write
+#      auto-approve-scopes: '.*'

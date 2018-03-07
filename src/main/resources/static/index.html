@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <title>GAS - Gandalf Authentication Service</title>
+        <meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+        <base href="/" />
+        <!--bootstrap core-->
+        <link rel="stylesheet" type="text/css"
+              href="/webjars/bootstrap/css/bootstrap.min.css" />
+
+        <!--import javascript-->
+        <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+        <script type="text/javascript"
+        src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+        <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
+        
+        <!-- Custom Fonts -->
+        <link href="webjars/font-awesome/css/font-awesome.min.css" 
+              rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+        
+        <!-- Custom CSS -->
+        <link href="css/stylish-portfolio.min.css" rel="stylesheet">
+        <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+    </head>
+
+    <body id="page-top">
+        <!-- Navigation -->
+        <a class="menu-toggle rounded" id="menu" href="#">
+            <i class="fa fa-bars"></i>
+        </a>
+        <nav id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a class="js-scroll-trigger" href="#page-top">OpenLabs Projects</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a class="js-scroll-trigger" href="#page-top">Home</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a class="js-scroll-trigger" href="#sobregas">About GAS</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a class="js-scroll-trigger" href="#sobreauth2">About OAuth2.0</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a class="js-scroll-trigger" href="#login">Log in</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a class="js-scroll-trigger" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Header -->
+        <header class="masthead d-flex" >
+            <div class="container text-center my-auto">
+                <h1 class="mb-1 text-custom">YOU SHALL NOT PASS!!!</h1>
+                <h3 class="mb-5 text-custom">GAS - Gandalf Authentication Service</h3>
+                <div class="cointainer">
+                    <!--imagem logo-->  
+                    <img src="img/galfalf-icon.png" class="img-center"/>
+                </div>
+                <a class="btn btn-danger btn-xl js-scroll-trigger" href="#login">Log in    
+                </a>
+            </div>
+        </header>
+        <div class="about container text-center" id="sobregas">
+            <h2>Sobre GAS - Gandalf Authentication Server</h2>
+            <div align="justify">
+                <p>GAS - Gandalf Authentication Server é um projeto que faz parte do programa de estágio da Open Labs S.A., proposto como meta do primeiro quadrimestre de 2018 aos estagiários do projeto <b>S.H.I.E.L.D.</b> projeto esse que faz parte do INB 022. Equipe responsável: <b>César Grecco Ribeiro</b>, <b>Renan Baisso</b>, <b>Rafael Argentieri Mendoza</b>, e <b>Vitor Silva</b></p>
+                <p> O projeto consiste de um servidor de autenticação via Google (posteriormente será extendido para dar suporte a demais plataformas), sua criação é baseada em um modelo arquitetural de micro serviços, que realizará a autenticação por meio de usuário do google. Após o login o usuario é redireciado a pagina de serviçõs oferecidos pelo servidor de recursos integrado ao GAS, o GRS(Gandalf Resource Server).</p>
+            </div>
+        </div>
+        <div class="about container text-center" id="sobreauth2">
+            <h2>Sobre OAuth2.0</h2>
+            <div class="cointainer">
+                <!--imagem logo-->  
+                <img src="img/oauth2-icon.png" class="img-center"/>
+            </div>
+            <div align="justify">
+                <p>OAuth é um padrão aberto para autorização, comumente utilizado para permitir que os usuários da Internet possam fazer logon em sites de terceiros usando suas contas do Google, Facebook, Microsoft, Twitter, etc.—mas, sem expor sua senha. Geralmente, o OAuth fornece aos clientes um "acesso seguro delegado" aos recursos do servidor em nome do proprietário do recurso. Ele especifica um processo para proprietários de recursos para autorizar o acesso de terceiros aos seus recursos de servidor sem compartilhar suas credenciais. Projetado especificamente para trabalhar com o Protocolo de Transferência de Hipertexto (HTTP), o OAuth permite essencialmente tokens de acesso a ser emitidos para clientes de terceiros, mediante autorização do servidor, com a aprovação do proprietário do recurso. O terceiro, em seguida, usa o token de acesso para recursos protegidos hospedados pelo servidor. </p>
+                <p>O OAuth é um serviço complementar e diferente do OpenID. OAuth é também distinto do OATH que é uma arquitetura de referência para autenticação, e não uma norma para autorização. No entanto, o OAuth está diretamente relacionada com o OpenID Connect (OIDC) pois OIDC é uma camada de autenticação construída em cima do OAuth 2.0. OAuth é também distinto do XACML, que é a política de autorização padrão. OAuth pode ser usado em conjunto com XACML onde OAuth é utilizado para a transferência de propriedade de consentimento e de acesso delegação considerando que XACML é usado para definir as diretivas de autorização (por exemplo, os gestores podem visualizar os documentos em sua região). Para saber mais consulte a <a href="https://tools.ietf.org/html/rfc6749">documentação completa aqui.</a>
+                </p>
+            </div>
+        </div>
+        <!-- Logins -->
+        <footer class="footer " id="login">
+            <div class="container text-center">
+                <h3 class="text-login">Log in with</h3>
+                <ul class="list-inline mb-5">
+                    <li class="list-inline-item">
+                        <a class="social-link rounded-circle text-white mr-3" href="/login/facebook">
+                            <i class="fa fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="social-link rounded-circle text-white mr-3" href="/login/google">
+                            <i class="fa fa-google"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="social-link rounded-circle text-white" href="/login/github">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="contact" class="contact">
+                <div class="text-align-left">
+                    <!--imagem logo openlabs-->  
+                    <img src="img/openlabs-logo.png" class="img-squared"/>
+                </div>
+                <div class="text-align-right">
+                    <p class="text-muted small mb-0">Copyright &copy; 2018 <a href="#">Gandalf Authentication Server</a> - Open Labs S.A.</p>
+                    <p class="text-muted small mb-0">R. Amauri, 305 - Jardim Europa, São Paulo - SP, 01448-901</p>
+
+                </div>
+            </div>
+        </footer>
+        
+        <!-- Custom scripts for this template -->
+        <script src="js/stylish-portfolio.min.js"></script>
+    </body>
+
+</html>

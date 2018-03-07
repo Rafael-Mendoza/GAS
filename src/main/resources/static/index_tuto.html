@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <title>OAuth2.0 Test</title>
+        <meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width"/>
+        <base href="/"/>
+        <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/webjars/js-cookie/js.cookie.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet"  type="text/css" href="font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-social.css">
+
+    </head>
+    <body>
+
+
+
+        <div class="form-group">
+            <h1>Welcome to</h1>
+            <h2> Shield Athentication Service</h2>
+        </div>
+
+        <div class="form-group">
+            <img class="mb-4" src="https://raw.github.com/henrinormak/Heimdall/1.1.5//Images/heimdall_icon.png" 
+                 alt height="100" width="100">
+        </div>
+
+        <div class="container unauthenticated">
+            <div class="col-md-3 social-buttons" >
+                <a href="/login/facebook" class="btn btn-block btn-social btn-facebook">
+                    <i class="fa fa-facebook"></i>
+                    Log in with Facebook
+                </a>
+            </div>
+        </div>
+
+        <div class="container authenticated" style="display: none" >
+            Logged in as: <span id="user"></span>
+            <div>
+                <button onClick="logout()" class="btn btn-primary" >Logout</button>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form-signin mg-btm">
+                    <div class="special-box">
+                        <div class="row">
+                            <div class="container unauthenticated">
+                                <div class="col-md-3 social-buttons" >
+                                    <a href="/login/facebook" class="btn btn-block btn-social btn-facebook">
+                                        <i class="fa fa-facebook"></i>
+                                        Log in with Facebook
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            $.get("/principal", function (data) {
+                $("#user").html(data.userAuthentication.details.name);
+                $(".unauthenticated").hide()
+                $(".authenticated").show()
+            });
+            var logout = function () {
+                $.post("/logout", function () {
+                    $("#user").html('');
+                    $(".unauthenticated").show();
+                    $(".authenticated").hide();
+                })
+                return true;
+            }
+            $.ajaxSetup({
+                beforeSend: function (xhr, settings) {
+                    if (settings.type == 'POST' || settings.type == 'PUT'
+                            || settings.type == 'DELETE') {
+                        if (!(/^http:.*/.test(settings.url) || /^https:.*/
+                                .test(settings.url))) {
+                            // Only send the token to relative URLs i.e. locally.
+                            xhr.setRequestHeader("X-XSRF-TOKEN",
+                                    Cookies.get('XSRF-TOKEN'));
+                        }
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
